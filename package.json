@@ -1,0 +1,14 @@
+{
+  "name": "tsa-education-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/scripts/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Abdullah Naim, David Nguyen, Kaamil Kaka, and Iqbal Ghanchi",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^22.0.3"
+  }
+}
