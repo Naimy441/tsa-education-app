@@ -18,6 +18,22 @@
       ::-webkit-scrollbar {
         display: none;
       }
+
+      .container {
+        display: flex;
+      }
+
+      .textarea {
+        width: 70%;
+        height: 50%;
+        margin: 20px;
+      }
+
+      .menu {
+        width: 30%;
+        height: 100%;
+        margin: 20px;
+      }
     </style>
   </head>
   <body>
@@ -43,7 +59,20 @@
       </div>
     </section>
 
-    <textarea class="textarea" rows="50"></textarea>
+    <div class="container">
+
+      <aside class="menu">
+        <p class="menu-label">
+          Notes
+        </p>
+        <ul class="menu-list">
+          <li><a class="is-active">Note</a></li>
+        </ul>
+      </aside>
+
+      <textarea class="textarea" rows="30"></textarea>
+
+    </div>
 
   </body>
 </html>
