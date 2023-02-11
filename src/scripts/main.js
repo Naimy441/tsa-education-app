@@ -24,7 +24,6 @@ function loadHTML(event, name) {
 
 function loadUserData(event) {
     userDataFile = path.join(__dirname, '../', '../', 'user_data.json')
-    userDataFile = "C:/Users/abu/tsa-education-app/user_data.json"
     rawData = fs.readFileSync(userDataFile)
     userData = JSON.parse(rawData)
     event.returnValue = userData
@@ -34,9 +33,15 @@ function print(event, message) {
     console.log(message)
 }
 
+function saveUserData(event, jsonData) {
+    userDataFile = path.join(__dirname, '../', '../', 'user_data.json')
+    fs.writeFileSync(userDataFile, jsonData)
+}
+
 app.whenReady().then(() => {
     ipcMain.on('load-html', loadHTML)
     ipcMain.on('load-user-data', loadUserData)
+    ipcMain.on('save-user-data', saveUserData)
     ipcMain.on('print', print)
     createWindow()
 })
