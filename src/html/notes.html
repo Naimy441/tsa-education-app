@@ -18,22 +18,22 @@
       ::-webkit-scrollbar {
         display: none;
       }
-
-      .container {
-        display: flex;
-      }
-
-      .textarea {
-        width: 70%;
-        height: 50%;
-        margin: 20px;
-      }
-
       .menu {
-        width: 30%;
-        height: 100%;
         margin: 20px;
       }
+      #textbox {
+        margin: 20px;
+        padding: 10px;
+      }
+      .button {
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+      .input {
+        margin-top: 30px;
+        margin-left: 20px;
+      }
+
     </style>
   </head>
   <body>
@@ -48,7 +48,7 @@
       </div>
     </section>
 
-    <section class="hero is-primary">
+    <section class="hero is-info">
       <div class="hero-body">
         <p class="title">
             📓 Notes
@@ -59,20 +59,14 @@
       </div>
     </section>
 
-    <div class="container">
-
-      <aside class="menu">
-        <p class="menu-label">
-          Notes
-        </p>
-        <ul class="menu-list">
-          <li><a class="is-active">Note</a></li>
-        </ul>
-      </aside>
-
-      <textarea class="textarea" rows="30"></textarea>
-
-    </div>
+      <div class="buttons"></div>
+      <button id="add" class="button is-success is-outlined">Add</button>
+      <button id="save" class="button is-warning is-inverted is-outlined">Save</button>
+      <button id="delete" class="button is-danger">Delete</button>
+      <input id="category-input" class="input is-rounded is-primary" type="text" placeholder="Category">
+      <input id="title-input" class="input is-rounded is-link" type="text" placeholder="Title">
+      
+      <textarea id="textbox" class="textarea" rows="30"></textarea>
 
   </body>
 </html>
