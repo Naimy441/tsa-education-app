@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LoveToLearn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script defer src="../scripts/study.js"></script>
+    <style>
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #logo {
+        cursor: pointer;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <section class="hero has-background-black">
+      <div class="hero-body">
+        <div class="container">
+          <figure class="image center">
+            <img id="logo" src="../../images/LoveToLearn.png" style="max-width: 400px;">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-link">
+      <div class="hero-body">
+        <p class="title">
+          🎓 Study
+        </p>
+        <p class="subtitle">
+          Study sets of custom questions and improve over time with our spaced repitition algorithim.
+        </p>
+      </div>
+    </section>
+
+    <div class="field">
+    <label class="label">Category</label>
+    <div class="control">
+        <input class="input is-rounded" type="text" placeholder="Input Category Name">
+    </div>
+    </div>
+
+    <div class="field">
+    <label class="label">Title</label>
+    <div class="control">
+        <input class="input is-rounded" type="text" placeholder="Input Title Name">
+    </div>
+    </div>
+
+    <div class="field">
+    <label class="label">Description</label>
+    <div class="control">
+        <textarea class="textarea" placeholder="Input Description Text"></textarea>
+    </div>
+    </div>
+
+    <div class="field">
+    <label class="label">Mode</label>
+    <div class="control">
+        <div class="select is-rounded">
+        <select>
+            <option>Normal</option>
+            <option>Crunch</option>
+        </select>
+        </div>
+    </div>
+    </div>
+
+    <div class="field">
+    <label class="label">Alloted Days</label>
+    <div class="control">
+        <input class="input is-rounded" type="text" placeholder="Input Number of Days">
+    </div>
+    </div>
+    </div>
+
+    <div class="field is-grouped">
+    <div class="control">
+    <button class="button is-link">Save</button>
+    </div>
+    <div class="control">
+    <button class="button is-link is-light">Cancel</button>
+    </div>
+
+  </body>
+</html>
