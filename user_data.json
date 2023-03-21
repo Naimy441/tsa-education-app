@@ -59,7 +59,7 @@
                         "03/22/2023": {
                             "time-spent": 4,
                             "confidence": 3,
-                            "accuracy": true
+                            "accuracy": null
                         }
                     }
                 }
