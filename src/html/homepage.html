@@ -1,45 +1,82 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LoveToLearn</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <style>
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      ::-webkit-scrollbar {
-        display: none;
-      }
-    </style>
-    <script defer src="../scripts/renderer.js"></script>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoveToLearn</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <style>
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    <section class="hero has-background-black">
-      <div class="hero-body">
-        <div class="container">
-          <figure class="image center">
-            <img src="../../images/LoveToLearn.png" style="max-width: 400px;">
-          </figure>
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script defer src="../scripts/renderer.js"></script>
+</head>
+
+<body>
+
+  <section class="hero has-background-black">
+    <div class="hero-body">
+      <div class="container">
+        <figure class="image center">
+          <img src="../../images/LoveToLearn.png" style="max-width: 400px;">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+
+          <div class="notification has-background-success has-text-white">
+            <div class="title">❔ <button id="about_us" class="button is-success is-inverted">About Us</button></div>
+            <div class="subtitle">
+              Learn about us, our mission, and more!
+            </div>
+          </div>
+
+          <div class="notification has-background-link has-text-white">
+            <div class="title">🎓 <button id="study" class="button is-link is-inverted">Study</button></div>
+            <div class="subtitle">
+              Study sets of custom questions and improve over time with our spaced repitition algorithim.
+            </div>
+          </div>
+
+          <div class="notification has-background-danger has-text-white">
+            <div class="title">🕝 <button id="timers" class="button is-danger-dark is-inverted">Timers</button></div>
+            <div class="subtitle">
+              Want to time your studying with the Pomodoro technique? Or maybe some custom one? Look no further than
+              right here.
+            </div>
+          </div>
+
+          <div class="notification has-background-warning has-text-white">
+            <div class="title">🗓️ <button id="tracker" class="button is-warning is-inverted">Tracker</button></div>
+            <div class="subtitle">
+              Track events, homework, tests, and more with this helpful tracker.
+            </div>
+          </div>
+
+          <div class="notification has-background-primary has-text-white">
+            <div class="title">📓 <button id="notes" class="button is-info is-inverted">Notes</button></div>
+            <div class="subtitle">
+              Take notes for your various classes. Organized, simple, and easy-to-use!
+            </div>
+          </div>
+
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</body>
 
-		<section class="section">
-			<div class="container">
-				<div class="columns">
-					<div class="column">
-            <div class="notification has-background-primary has-text-white">
-              <div class="title">📓 <button id="notes" class="button is-info is-inverted">Notes</button></div>
-              <div class="subtitle">
-                Take notes for your various classes. Organized, simple, and easy-to-use!
-              </div>
-						</div>
-					</div>
-  </body>
 </html>
