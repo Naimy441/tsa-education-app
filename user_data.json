@@ -1,1 +1,72 @@
-{"notes-data": []}
+{
+    "study-data": {
+        "Psychology - Unit 5": {
+            "category": "Psychology",
+            "number-of-cards": 1,
+            "type-of-deck": "NORMAL",
+            "date-of-start": "03/18/2023",
+            "next-date-of-study": "03/23/2023",
+            "estimated-study-session-time": 30,
+            "cards": [
+                {
+                    "Bipolar Personality Disorder": "A mental health condition that causes extreme mood swings.",
+                    "data": {
+                        "03/21/2023": {
+                            "time-spent": 14.5,
+                            "confidence": 3,
+                            "accuracy": true
+                        },
+                        "03/19/2023": {
+                            "time-spent": 20.1,
+                            "confidence": 1,
+                            "accuracy": false
+                        }
+                    }
+                }
+            ]
+        },
+        "The Great Depression": {
+            "category": "APUSH",
+            "number-of-cards": 2,
+            "type-of-deck": "CRAM",
+            "date-of-start": "03/21/2023",
+            "next-date-of-study": "03/23/2023",
+            "estimated-study-session-time": 45,
+            "cards": [
+                {
+                    "FDR": "An amazing president!",
+                    "data": {
+                        "03/21/2023": {
+                            "time-spent": 5.4,
+                            "confidence": 3,
+                            "accuracy": true
+                        },
+                        "03/22/2023": {
+                            "time-spent": 3,
+                            "confidence": 5,
+                            "accuracy": true
+                        }
+                    }
+                },
+                {
+                    "Hoover": "A bad president.",
+                    "data": {
+                        "03/21/2023": {
+                            "time-spent": 3,
+                            "confidence": 1,
+                            "accuracy": false
+                        },
+                        "03/22/2023": {
+                            "time-spent": 4,
+                            "confidence": 3,
+                            "accuracy": true
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "tracker-data": [],
+    "timers-data": [],
+    "notes-data": []
+}
