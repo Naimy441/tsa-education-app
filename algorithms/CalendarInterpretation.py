@@ -1,21 +1,52 @@
+from datetime import date, timedelta
 import datetime
 import pytz
 import math
 import sys
 
+
+
 a = 100
 b = 100
 
-inputVect = [
-  datetime.datetime(2020, 5, 17, 23, 0),
-  datetime.datetime(2020, 5, 18, 23, 0),
-  datetime.datetime(2020, 5, 25, 23, 0),
-  datetime.datetime(2020, 6, 15, 23, 0)
-]
-selectedTimes = [
-  datetime.datetime(2020, 6, 18, 23, 0),
-  datetime.datetime(2020, 6, 20, 23, 0)
-]
+allottedDays=100
+timeLength=timedelta(days=allottedDays)
+
+daysOfStudy = {
+  "Monday": True,
+  "Tuesday": False,
+  "Wednesday": False,
+  "Thursday": False,
+  "Friday": True,
+  "Saturday": False,
+  "Sunday": True
+}
+
+weekdaysList=["Monday", "Tuesday", "Wednesday","Thursday","Friday", "Saturday", "Sunday"]
+
+
+date=datetime.datetime.now()
+
+dateList=[]
+for n in range(timeLength.days):
+  day=date+timedelta(days=n)
+  dateList.append(day)
+
+for day in dateList:
+  print(day)
+
+
+session=[]
+for i in range(len(dateList)):
+  if daysOfStudy[weekdaysList[dateList[i].weekday()]]:
+    session.append(dateList[i])
+    
+inputVect=session
+selectedTime=date+timedelta(days=timeLength.days)
+print(selectedTime)
+
+
+
 
 sessionsVect = []
 for i in range(len(inputVect)):
@@ -64,9 +95,7 @@ def memoryRetentionFunctionDate(date):
   return memoryRetentionFunction(hours)
 
 
-selectedRetention = []
-for selectedTime in selectedTimes:
-  selectedRetention.append(memoryRetentionFunctionDate(selectedTime))
+selectedRetention=memoryRetentionFunctionDate(selectedTime)
 
 print(selectedRetention)
 
