@@ -6,10 +6,15 @@ import sys
 
 jsonArgs=json.loads(sys.argv[1])
 
+cards =jsonArgs['cards']
+cardList=[[],[],[],[],[]]
+for card in cards:
+  cardList[card["group"]].append("question")
 
-cardList = [["card", "mom"], ["dad"], ["chicken"], ["mole"], []]
 
-currentCard = ["card", 0, jsonArgs['is-current-card-answer-correct']]
+#cardList = [["card", "mom"], ["dad"], ["chicken"], ["mole"], []]
+
+currentCard = [cards[jsonArgs['current-card-index']]["question"], cards[jsonArgs['current-card-index']]["group"],  jsonArgs['is-current-card-answer-correct']]
 
 
 
@@ -47,7 +52,13 @@ while (len(list)==0):
 newNum=random.randint(0, len(list)-1)
 
   
-currentCard = [list[newNum], numChoose, None]
+#currentCard = [list[newNum], numChoose, None]
   
 
-print(cardList)
+for i in range(len(cards)):
+  if (cards[i]==list[newNum]):
+    nextIndex=i
+
+result= json.dumps ({  "next-card-index" : nextIndex  }) 
+
+print(result)
