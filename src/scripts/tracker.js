@@ -28,9 +28,19 @@ function createCard(titleText, subtitleText) {
     // Title inline edit function
     title.onclick = function () {
         var input = document.createElement("input");
-        input.value = this.textContent;
+        input.value = title.textContent;
         input.onblur = function() {
-            this.parentNode.textContent = this.value;
+            title.textContent = input.value;
+
+            for (let i = 0; i < user_data["tracker-data"].length; i++) {
+                if (user_data["tracker-data"][i]["subtitle"] == subtitle.textContent) {
+                    user_data["tracker-data"][i]["title"] = this.value;
+                    break;
+                }
+            }
+            
+            console.log(user_data["tracker-data"]);
+            window.electronAPI.saveUserData(JSON.stringify(user_data));
         }
         this.textContent="";
         this.appendChild(input);
@@ -48,9 +58,19 @@ function createCard(titleText, subtitleText) {
     // Subtitle inline edit function
     subtitle.onclick = function () {
         var input = document.createElement("input");
-        input.value = this.textContent;
+        input.value = subtitle.textContent;
         input.onblur = function() {
-            this.parentNode.textContent = this.value;
+            subtitle.textContent = input.value;
+
+            for (let i = 0; i < user_data["tracker-data"].length; i++) {
+                if (user_data["tracker-data"][i]["title"] == title.textContent) {
+                    user_data["tracker-data"][i]["subtitle"] = this.value;
+                    break;
+                }
+            }
+            
+            console.log(user_data["tracker-data"]);
+            window.electronAPI.saveUserData(JSON.stringify(user_data));
         }
         this.textContent="";
         this.appendChild(input);
