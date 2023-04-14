@@ -39,7 +39,7 @@ function createCard(titleText, subtitleText) {
 
     // create the "Mark as Done" button element
     const button = document.createElement('button');
-    button.classList.add('button', 'is-primary', 'is-responsive', 'is-outlined', 'is-fullwidth');
+    button.classList.add('done', 'button', 'is-primary', 'is-responsive', 'is-outlined', 'is-fullwidth');
     button.textContent = 'Mark as Done';
     cardFooterItem.appendChild(button);
 
@@ -57,8 +57,8 @@ const trackers = document.querySelector("div.trackers");
 const firstChild = trackers.firstChild;
 trackers.insertBefore(createCard("APUSH", "Due in 0 days"), firstChild);
 
-trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node){
-	node.ondblclick=function(){
+trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node) {
+	node.ondblclick=function() {
 		var val=this.innerHTML;
 		var input=document.createElement("input");
 		input.value=val;
@@ -70,4 +70,10 @@ trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node){
 		this.appendChild(input);
 		input.focus();
 	}
+});
+
+trackers.querySelectorAll("button.done").forEach(function(node) {
+    node.onclick=function() {
+        trackers.removeChild(node.parentElement.parentElement.parentElement);
+    }
 });
