@@ -1,5 +1,8 @@
 import math
 
+# list: S
+# a, b
+
 SList = [1, 2, 3, 5, 6]
 vect = []
 sum = 0
