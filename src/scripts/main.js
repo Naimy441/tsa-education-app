@@ -2,7 +2,6 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const { userInfo } = require('os');
 const { PythonShell } = require('python-shell')
 datetime = require('node-datetime')
-sleep = require('sleep-promise');
 path = require('path')
 fs = require('fs')
 console = require('console')
