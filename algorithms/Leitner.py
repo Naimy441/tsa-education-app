@@ -1,3 +1,6 @@
+# current-card-index, is-current-card-answer-correct, cards
+# next-card-index
+
 import random
 
 cardList = [["card"], [], [], [], []]
