@@ -10,5 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^22.0.3"
+  },
+  "dependencies": {
+    "node-datetime": "^2.1.2",
+    "python-shell": "^5.0.0"
   }
 }
