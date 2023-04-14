@@ -67,7 +67,6 @@ function addCard(titleText, subtitleText) {
     trackers.querySelectorAll("button.done").forEach(function(node) {
         node.onclick=function() {
             const parent_card = node.parentElement.parentElement.parentElement;
-            console.log(user_data["tracker-data"]);
             for (let i = 0; i < user_data["tracker-data"].length; i++) {
                 if (user_data["tracker-data"][i]["title"] == parent_card.querySelector("p.title").textContent && 
                     user_data["tracker-data"][i]["subtitle"] == parent_card.querySelector("p.subtitle").textContent) {
@@ -84,14 +83,14 @@ function addCard(titleText, subtitleText) {
     // Inline edit card function
     trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node) {
         node.ondblclick = function() {
-            var val=this.innerHTML;
-            var input=document.createElement("input");
+            var val = this.textContent;
+            var input = document.createElement("input");
             input.value=val;
             input.onblur=function(){
                 var val=this.value;
-                this.parentNode.innerHTML=val;
+                this.parentNode.textContent=val;
             }
-            this.innerHTML="";
+            this.textContent="";
             this.appendChild(input);
             input.focus();
         }
