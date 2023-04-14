@@ -1,53 +1,72 @@
-# current-card-index, is-current-card-answer-correct, cards
-# next-card-index
+import math
 import json
-import random
 import sys
 
 jsonArgs=json.loads(sys.argv[1])
 
+SList=jsonArgs['S']
 
-cardList = [["card", "mom"], ["dad"], ["chicken"], ["mole"], []]
+sum = 0
+for i in range(len(SList)):
+  vect.append([i, SList[i]])
 
-currentCard = ["card", 0, jsonArgs['is-current-card-answer-correct']]
-
-
-
-if (currentCard[2] == True):
-  if (currentCard[1] != 4):
-    cardList[currentCard[1]].remove(currentCard[0])
-    cardList[currentCard[1] + 1].append(currentCard[0])
-    currentCard[2] = currentCard[1] + 1
-else:
-  cardList[currentCard[1]].remove(currentCard[0])
-  cardList[0].append(currentCard[0])
-  currentCard[2] = 0
-
-numChoose=0
-list=[]
-while (len(list)==0):
-  num = random.randint(0, 31)
-  if (num <= 16):
-    list=cardList[0]
-    numChoose=0
-  elif (num <= 24):
-    list=cardList[1]
-    numChoose=1
-  elif (num <= 28):
-    list=cardList[2]
-    numChoose=2
-  elif (num <= 30):
-    list=cardList[3]
-    numChoose=3
-  elif (num <= 31):
-    list=cardList[4]
-    numChoose=4
+avgAB = [1, 2]
 
 
-newNum=random.randint(0, len(list)-1)
+def func(a, b, x):
+  return a * x + b
 
-  
-currentCard = [list[newNum], numChoose, None]
-  
 
-print(cardList)
+def Lsq(vect, a, b):
+  sum = 0
+  for i in range(len(vect)):
+    sum = sum + (vect[i][1] - func(a, b, vect[i][0]))**2
+  return sum
+
+
+def gradALSq(vect, a, b):
+  Sum = 0
+  for i in range(len(vect)):
+    Sum = Sum + 2 * (vect[i][1] - a * vect[i][0] - b) * -vect[i][0]
+  return Sum
+
+
+def gradBLSq(vect, a, b):
+  Sum = 0
+  for i in range(len(vect)):
+    Sum = Sum + 2 * (vect[i][1] - a * vect[i][0] - b) * -1
+  return Sum
+
+
+def findS(vect):
+  global avgAB
+
+  minList = []
+  for a in range(-1000, 1000):
+    for b in range(-1000, 1000):
+      a_new = a * 0.01
+      b_new = b * 0.01
+      u = gradALSq(vect, a_new, b_new)
+      v = gradBLSq(vect, a_new, b_new)
+      if (math.fabs(u) < 0.01 and math.fabs(v) < 0.01):
+        minList.append([a_new, b_new])
+  if (len(minList) > 1):
+    val = minList[0]
+    for i in range(len(minList)):
+      if Lsq(vect, minList[i][0], minList[i][1]) < Lsq(vect, val):
+        val = minList[i]
+    return avgAB
+  elif (len(minList) == 1):
+    return minList[0]
+
+  else:
+    return avgAB
+
+
+avgAB=findS(vect)
+
+
+result= json.dumps ({  "result" : avgAB  })
+
+print(result)
+
