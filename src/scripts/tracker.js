@@ -6,7 +6,6 @@ logo.addEventListener('click', () => {
 const trackers = document.querySelector("div.trackers");
 let user_data = window.electronAPI.loadUserData();
 
-
 // Card html template
 function createCard(titleText, subtitleText) {
     // create the card element
@@ -69,32 +68,32 @@ document.getElementById('add-card').addEventListener('click', () => {
 
     // Delete button function
     trackers.querySelectorAll("button.done").forEach(function(node) {
-    node.onclick=function() {
-        const parent_card = node.parentElement.parentElement.parentElement;
-        user_data["tracker-data"].forEach((card, i) => {
-            if (card["title"] == parent_card.querySelector("p.title").textContent) {
-                user_data["tracker-data"].splice(i,1);
-            }
-        })
-        window.electronAPI.saveUserData(JSON.stringify(user_data));
-        
-        trackers.removeChild(parent_card);
-    }
-});
-});
+        node.onclick=function() {
+            const parent_card = node.parentElement.parentElement.parentElement;
+            user_data["tracker-data"].forEach((card, i) => {
+                if (card["title"] == parent_card.querySelector("p.title").textContent) {
+                    user_data["tracker-data"].splice(i,1);
+                }
+            })
+            window.electronAPI.saveUserData(JSON.stringify(user_data));
 
-// Inline edit card function
-trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node) {
-	node.ondblclick=function() {
-		var val=this.innerHTML;
-		var input=document.createElement("input");
-		input.value=val;
-		input.onblur=function(){
-			var val=this.value;
-			this.parentNode.innerHTML=val;
-		}
-		this.innerHTML="";
-		this.appendChild(input);
-		input.focus();
-	}
+            trackers.removeChild(parent_card);
+        }
+    });
+
+    // Inline edit card function
+    trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node) {
+        node.ondblclick = function() {
+            var val=this.innerHTML;
+            var input=document.createElement("input");
+            input.value=val;
+            input.onblur=function(){
+                var val=this.value;
+                this.parentNode.innerHTML=val;
+            }
+            this.innerHTML="";
+            this.appendChild(input);
+            input.focus();
+        }
+    });
 });
