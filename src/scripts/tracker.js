@@ -55,16 +55,9 @@ function createCard(titleText, subtitleText) {
 
 }
 
-// Insert new cards at the beginning
-document.getElementById('add-card').addEventListener('click', () => {
+function addCard(titleText, subtitleText) {
     const firstChild = trackers.firstChild;
-    trackers.insertBefore(createCard("Untitled", "Due Date 0"), firstChild);
-    user_data["tracker-data"].unshift({
-        "title": "Untitled",
-        "subtitle": "Due Date 0"
-    });
-
-    window.electronAPI.saveUserData(JSON.stringify(user_data));
+    trackers.insertBefore(createCard(titleText, subtitleText), firstChild);
 
     // Delete button function
     trackers.querySelectorAll("button.done").forEach(function(node) {
@@ -96,4 +89,15 @@ document.getElementById('add-card').addEventListener('click', () => {
             input.focus();
         }
     });
+}
+
+// Insert new cards at the beginning
+document.getElementById('add-card').addEventListener('click', () => {
+    addCard("Untitled", "Due in 0 day(s).");
+    user_data["tracker-data"].unshift({
+        "title": "Untitled",
+        "subtitle": "Due in 0 day(s)."
+    });
+
+    window.electronAPI.saveUserData(JSON.stringify(user_data));
 });
