@@ -24,6 +24,19 @@ function createCard(titleText, subtitleText) {
     const title = document.createElement('p');
     title.classList.add('title');
     title.textContent = titleText; // change the title here
+
+    // Title inline edit function
+    title.onclick = function () {
+        var input = document.createElement("input");
+        input.value = this.textContent;
+        input.onblur = function() {
+            this.parentNode.textContent = this.value;
+        }
+        this.textContent="";
+        this.appendChild(input);
+        input.focus();
+    };
+
     cardContent.appendChild(title);
 
     // create the subtitle element
@@ -31,6 +44,18 @@ function createCard(titleText, subtitleText) {
     subtitle.classList.add('subtitle');
     subtitle.textContent = subtitleText; // change the subtitle here
     cardContent.appendChild(subtitle);
+
+    // Subtitle inline edit function
+    subtitle.onclick = function () {
+        var input = document.createElement("input");
+        input.value = this.textContent;
+        input.onblur = function() {
+            this.parentNode.textContent = this.value;
+        }
+        this.textContent="";
+        this.appendChild(input);
+        input.focus();
+    };
 
     // add the card content to the card element
     card.appendChild(cardContent);
@@ -47,6 +72,22 @@ function createCard(titleText, subtitleText) {
     const button = document.createElement('button');
     button.classList.add('done', 'button', 'is-primary', 'is-responsive', 'is-outlined', 'is-fullwidth');
     button.textContent = 'Mark as Done';
+
+    // Mark as Done delete self function
+    button.onclick = function () {
+        const parent_card = this.parentElement.parentElement.parentElement;
+        for (let i = 0; i < user_data["tracker-data"].length; i++) {
+            if (user_data["tracker-data"][i]["title"] == parent_card.querySelector("p.title").textContent && 
+                user_data["tracker-data"][i]["subtitle"] == parent_card.querySelector("p.subtitle").textContent) {
+                user_data["tracker-data"].splice(i,1);
+                break;
+            }
+        }
+
+        window.electronAPI.saveUserData(JSON.stringify(user_data));
+        trackers.removeChild(parent_card);
+    };
+
     cardFooterItem.appendChild(button);
 
     // add the card footer item to the card footer element
@@ -62,39 +103,6 @@ function createCard(titleText, subtitleText) {
 function addCard(titleText, subtitleText) {
     const firstChild = trackers.firstChild;
     trackers.insertBefore(createCard(titleText, subtitleText), firstChild);
-
-    // Delete button function
-    trackers.querySelectorAll("button.done").forEach(function(node) {
-        node.onclick=function() {
-            const parent_card = node.parentElement.parentElement.parentElement;
-            for (let i = 0; i < user_data["tracker-data"].length; i++) {
-                if (user_data["tracker-data"][i]["title"] == parent_card.querySelector("p.title").textContent && 
-                    user_data["tracker-data"][i]["subtitle"] == parent_card.querySelector("p.subtitle").textContent) {
-                    user_data["tracker-data"].splice(i,1);
-                    break;
-                }
-            }
-
-            window.electronAPI.saveUserData(JSON.stringify(user_data));
-            trackers.removeChild(parent_card);
-        }
-    });
-
-    // Inline edit card function
-    trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node) {
-        node.ondblclick = function() {
-            var val = this.textContent;
-            var input = document.createElement("input");
-            input.value=val;
-            input.onblur=function(){
-                var val=this.value;
-                this.parentNode.textContent=val;
-            }
-            this.textContent="";
-            this.appendChild(input);
-            input.focus();
-        }
-    });
 }
 
 // Insert new cards at the beginning
