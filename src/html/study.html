@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LoveToLearn</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <script defer src="../scripts/study_set.js"></script>
+  <script defer src="../scripts/study.js"></script>
   <style>
     .center {
       display: flex;
@@ -22,20 +22,24 @@
       display: none;
     }
 
-    .content {
-      margin-top: 2.5%;
-      margin-bottom: 5%;
-      margin-left: 4%;
-      margin-right: 4%
+    p {
+      text-align: center;
     }
 
-    #buttons {
-      margin-top: 1%;
-      margin-bottom: 5%;
-      margin-left: 4%;
-      margin-right: 4%;
-      display: flex;
-      justify-content: space-around
+    #title, #subtitle {
+      text-align: left;
+    }
+
+    #sets {
+      margin-top: 2.5%;
+      margin-right: 2.5%;
+      margin-left: 2.5%;
+      margin-bottom: 2%;
+    }
+
+    .bold {
+      font-weight: bold;
+      display: inline;
     }
   </style>
 </head>
@@ -54,24 +58,23 @@
 
   <section class="hero is-link">
     <div class="hero-body">
-      <p id="page_title" class="title"></p>
+      <p id="title" class="title">
+        🎓 Study
+      </p>
+      <p id="subtitle" class="subtitle">
+        Study sets of custom questions and improve over time with our spaced repitition algorithim.
+      </p>
     </div>
   </section>
 
-  <div class="content">
-    <div class="box">
-      <h2 id="question"></h2>
-    </div>
-    <div id='answer-block' class="box">
-      <h3 id="answer"></h3>
-    </div>
+  <div id="sets"></div>
+
+  <div class="section">
+    <button id="create" class="button is-link is-outlined is-fullwidth">
+      Create New Set
+    </button>
   </div>
 
-  <div id='buttons' class="section">
-    <button id='false' class="button is-outlined is-danger">Forgot</button>
-    <button id="reveal" class="button is-link is-outlined">Reveal the answer!</button>
-    <button id='true' class="button is-outlined is-primary">Remembered</button>
-  </div>
 </body>
 
 </html>
