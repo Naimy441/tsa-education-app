@@ -8,10 +8,12 @@ import json
 # expected-end-state
 
 jsonArgs=json.loads(sys.argv[1])
-a = 100
-b = 100
 
 allottedDays=int(jsonArgs['alloted-days'])
+a = int(jsonArgs['avgAB'][0]) 
+b = int(jsonArgs['avgAB'][1])
+
+
 timeLength=timedelta(days=allottedDays)
 
 daysOfStudy = jsonArgs['days-of-study']
