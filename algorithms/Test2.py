@@ -66,6 +66,6 @@ def findS(vect):
 avgAB=findS(vect)
 
 
-result= json.dumps ({  "result" : avgAB  })
+result= json.dumps ({  "avgAB" : avgAB  })
 
 print(result)
