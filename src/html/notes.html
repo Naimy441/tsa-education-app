@@ -1,72 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LoveToLearn</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script defer src="../scripts/notes.js"></script>
-    <style>
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #logo {
-        cursor: pointer;
-      }  
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      .menu {
-        margin: 20px;
-      }
-      #textbox {
-        margin: 20px;
-        padding: 10px;
-      }
-      .button {
-        margin-top: 10px;
-        margin-left: 20px;
-      }
-      .input {
-        margin-top: 30px;
-        margin-left: 20px;
-      }
 
-    </style>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoveToLearn</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script defer src="../scripts/notes.js"></script>
+  <style>
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    <section class="hero has-background-black">
-      <div class="hero-body">
-        <div class="container">
-          <figure class="image center">
-            <img id="logo" src="../../images/LoveToLearn.png" style="max-width: 400px;">
-          </figure>
-        </div>
+    #logo {
+      cursor: pointer;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .menu {
+      margin: 20px;
+    }
+
+    #textbox {
+      margin: 20px;
+      padding: 10px;
+    }
+
+    .button {
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    .input {
+      margin-top: 30px;
+      margin-left: 20px;
+    }
+
+    .form-group {
+      margin-top: 2.5%;
+      margin-right: 7.5%;
+      margin-left: 7.5%;
+      margin-bottom: 5%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero has-background-black">
+    <div class="hero-body">
+      <div class="container">
+        <figure class="image center">
+          <img id="logo" src="../../images/LoveToLearn.png" style="max-width: 400px;">
+        </figure>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="hero is-info">
-      <div class="hero-body">
-        <p class="title">
-            📓 Notes
-        </p>
-        <p class="subtitle">
-            Take notes for your various classes. Organized, simple, and easy-to-use!
-        </p>
-      </div>
-    </section>
+  <section class="hero is-info">
+    <div class="hero-body">
+      <p class="title">
+        📓 Notes
+      </p>
+      <p class="subtitle">
+        Take notes for your various classes. Organized, simple, and easy-to-use!
+      </p>
+    </div>
+  </section>
+  <div class="form-group">
+    <div class="buttons"></div>
+    <button id="add" class="button is-success is-outlined">Add</button>
+    <button id="save" class="button is-warning is-inverted is-outlined">Save</button>
+    <button id="delete" class="button is-danger">Delete</button>
+    <input id="category-input" class="input is-rounded is-primary" type="text" placeholder="Category">
+    <input id="title-input" class="input is-rounded is-link" type="text" placeholder="Title">
 
-      <div class="buttons"></div>
-      <button id="add" class="button is-success is-outlined">Add</button>
-      <button id="save" class="button is-warning is-inverted is-outlined">Save</button>
-      <button id="delete" class="button is-danger">Delete</button>
-      <input id="category-input" class="input is-rounded is-primary" type="text" placeholder="Category">
-      <input id="title-input" class="input is-rounded is-link" type="text" placeholder="Title">
-      
-      <textarea id="textbox" class="textarea" rows="30"></textarea>
+    <textarea id="textbox" class="textarea" rows="30"></textarea>
+  </div>
+</body>
 
-  </body>
 </html>
