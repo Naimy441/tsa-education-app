@@ -3,8 +3,11 @@ logo.addEventListener('click', () => {
     window.electronAPI.loadHTML('homepage')
 })
 
-let trackers_userdata = [];
+const trackers = document.querySelector("div.trackers");
+let user_data = window.electronAPI.loadUserData();
 
+
+// Card html template
 function createCard(titleText, subtitleText) {
     // create the card element
     const card = document.createElement('div');
@@ -53,10 +56,34 @@ function createCard(titleText, subtitleText) {
 
 }
 
-const trackers = document.querySelector("div.trackers");
-const firstChild = trackers.firstChild;
-trackers.insertBefore(createCard("APUSH", "Due in 0 days"), firstChild);
+// Insert new cards at the beginning
+document.getElementById('add-card').addEventListener('click', () => {
+    const firstChild = trackers.firstChild;
+    trackers.insertBefore(createCard("Untitled", "Due Date 0"), firstChild);
+    user_data["tracker-data"].unshift({
+        "title": "Untitled",
+        "subtitle": "Due Date 0"
+    });
 
+    window.electronAPI.saveUserData(JSON.stringify(user_data));
+
+    // Delete button function
+    trackers.querySelectorAll("button.done").forEach(function(node) {
+    node.onclick=function() {
+        const parent_card = node.parentElement.parentElement.parentElement;
+        user_data["tracker-data"].forEach((card, i) => {
+            if (card["title"] == parent_card.querySelector("p.title").textContent) {
+                user_data["tracker-data"].splice(i,1);
+            }
+        })
+        window.electronAPI.saveUserData(JSON.stringify(user_data));
+        
+        trackers.removeChild(parent_card);
+    }
+});
+});
+
+// Inline edit card function
 trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node) {
 	node.ondblclick=function() {
 		var val=this.innerHTML;
@@ -70,10 +97,4 @@ trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node) {
 		this.appendChild(input);
 		input.focus();
 	}
-});
-
-trackers.querySelectorAll("button.done").forEach(function(node) {
-    node.onclick=function() {
-        trackers.removeChild(node.parentElement.parentElement.parentElement);
-    }
 });
