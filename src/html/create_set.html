@@ -1,96 +1,165 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LoveToLearn</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script defer src="../scripts/study.js"></script>
-    <style>
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #logo {
-        cursor: pointer;
-      }
-      ::-webkit-scrollbar {
-        display: none;
-      }
-    </style>
-  </head>
-  <body>
 
-    <section class="hero has-background-black">
-      <div class="hero-body">
-        <div class="container">
-          <figure class="image center">
-            <img id="logo" src="../../images/LoveToLearn.png" style="max-width: 400px;">
-          </figure>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoveToLearn</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script defer src="../scripts/create_set.js"></script>
+  <style>
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #logo {
+      cursor: pointer;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .form-group {
+      margin-top: 2.5%;
+      margin-right: 7.5%;
+      margin-left: 7.5%;
+      margin-bottom: 5%;
+    }
+
+    .form-buttons {
+      margin-top: 5%;
+      margin-right: 7.5%;
+      margin-left: 7.5%;
+      margin-bottom: 5%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero has-background-black">
+    <div class="hero-body">
+      <div class="container">
+        <figure class="image center">
+          <img id="logo" src="../../images/LoveToLearn.png" style="max-width: 400px;">
+        </figure>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="hero is-link">
-      <div class="hero-body">
-        <p class="title">
-          🎓 Study
-        </p>
-        <p class="subtitle">
-          Study sets of custom questions and improve over time with our spaced repitition algorithim.
-        </p>
+  <section class="hero is-link">
+    <div class="hero-body">
+      <p id="page_title" class="title">
+        🎓 Create Set
+      </p>
+    </div>
+  </section>
+
+  <div class="form-group">
+    <div class="field">
+      <label class="label">Category</label>
+      <div class="control">
+        <input id="category" class="input is-rounded" type="text" placeholder="Input Category Name">
       </div>
-    </section>
-
-    <div class="field">
-    <label class="label">Category</label>
-    <div class="control">
-        <input class="input is-rounded" type="text" placeholder="Input Category Name">
-    </div>
     </div>
 
     <div class="field">
-    <label class="label">Title</label>
-    <div class="control">
-        <input class="input is-rounded" type="text" placeholder="Input Title Name">
-    </div>
-    </div>
-
-    <div class="field">
-    <label class="label">Description</label>
-    <div class="control">
-        <textarea class="textarea" placeholder="Input Description Text"></textarea>
-    </div>
+      <label class="label">Title</label>
+      <div class="control">
+        <input id="title" class="input is-rounded" type="text" placeholder="Input Title Name">
+      </div>
     </div>
 
     <div class="field">
-    <label class="label">Mode</label>
-    <div class="control">
+      <label class="label">Description</label>
+      <div class="control">
+        <textarea id="description" class="textarea" placeholder="Input Description Text"></textarea>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Mode</label>
+      <div class="control">
         <div class="select is-rounded">
-        <select>
+          <select id="mode">
             <option>Normal</option>
             <option>Crunch</option>
-        </select>
+          </select>
         </div>
-    </div>
+      </div>
     </div>
 
     <div class="field">
-    <label class="label">Alloted Days</label>
-    <div class="control">
-        <input class="input is-rounded" type="text" placeholder="Input Number of Days">
-    </div>
-    </div>
+      <label id="alloted_days_label" class="label">Alloted Days</label>
+      <div class="control">
+        <input id="alloted_days" class="input is-rounded" type="text" placeholder="Input Number of Days">
+      </div>
     </div>
 
+    <div class="field">
+      <label id="checkboxes-label" class="label">Selected Days</label>
+      <div id="checkboxes" class="control">
+        <label class="checkbox">
+          <input id="monday" type="checkbox">
+          Monday
+        </label>
+        </br>
+        <label class="checkbox">
+          <input id="tuesday" type="checkbox">
+          Tuesday
+        </label>
+        </br>
+        <label class="checkbox">
+          <input id="wednesday" type="checkbox">
+          Wednesday
+        </label>
+        </br>
+        <label class="checkbox">
+          <input id="thursday" type="checkbox">
+          Thursday
+        </label>
+        </br>
+        <label class="checkbox">
+          <input id="friday" type="checkbox">
+          Friday
+        </label>
+        </br>
+        <label class="checkbox">
+          <input id="saturday" type="checkbox">
+          Saturday
+        </label>
+        </br>
+        <label class="checkbox">
+          <input id="sunday" type="checkbox">
+          Sunday
+        </label>
+      </div>
+    </div>
+
+    <div id="end-state-div" class="field">
+      <label id="end-state-label" class="label">Expected Memorization by Completion</label>
+      <div class="control">
+        <p id="end-state">Press 'check' for a result!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-buttons">
     <div class="field is-grouped">
-    <div class="control">
-    <button class="button is-link">Save</button>
+      <div class="control">
+        <button id="submit" class="button is-success">Submit</button>
+      </div>
+      <div class="control">
+        <button id="check" class="button is-link">Check</button>
+      </div>
+      <div class="control">
+        <button id="cancel" class="button is-warning is-inverted is-outlined">Cancel</button>
+      </div>
     </div>
-    <div class="control">
-    <button class="button is-link is-light">Cancel</button>
-    </div>
+  </div>
+</body>
 
-  </body>
 </html>
