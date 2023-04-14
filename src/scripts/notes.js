@@ -7,15 +7,14 @@ notes = window.electronAPI.loadUserData()['notes-data']
 
 menu = document.getElementsByClassName('buttons')[0]
 for (note of notes) {
-    for (item_name of Object.keys(note['items']))
-    {
+    for (item_name of Object.keys(note['items'])) {
         label = document.createElement('button')
         labelText = document.createTextNode(note['category-name'] + ' - ' + item_name)
         label.classList.add('menu-button')
         label.classList.add('button')
         label.classList.add('is-link')
         label.appendChild(labelText)
-    
+
         menu.appendChild(label)
     }
 }
@@ -108,7 +107,7 @@ function addNote(event) {
     if (titleInput.value.split(' ').length > 1) {
         titleInput.value = 'Error: titles cannot contain spaces'
         return
-    } 
+    }
 
     notes = window.electronAPI.loadUserData()
     for (note of notes['notes-data']) {
@@ -159,7 +158,7 @@ function addNote(event) {
             label.classList.add('is-link')
             label.appendChild(labelText)
             menu.appendChild(label)
-        
+
             for (button of document.getElementsByClassName('menu-button')) {
                 button.addEventListener('click', loadNote)
             }
