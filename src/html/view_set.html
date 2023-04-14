@@ -1,72 +1,126 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LoveToLearn</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script defer src="../scripts/study.js"></script>
-    <style>
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #logo {
-        cursor: pointer;
-      }
-      ::-webkit-scrollbar {
-        display: none;
-      }
-    </style>
-  </head>
-  <body>
 
-    <section class="hero has-background-black">
-      <div class="hero-body">
-        <div class="container">
-          <figure class="image center">
-            <img id="logo" src="../../images/LoveToLearn.png" style="max-width: 400px;">
-          </figure>
-        </div>
-      </div>
-    </section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoveToLearn</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script defer src="../scripts/view_set.js"></script>
+  <style>
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    <section class="hero is-link">
-      <div class="hero-body">
-        <p class="title">
-          🎓 Study - Category
-        </p>
-      </div>
-    </section>
+    #logo {
+      cursor: pointer;
+    }
 
-    <div class="content">
-        <h3>Category</h3>
-        <p id="category">Psychology</p>
-        <h3>Description</h3>
-        <p id="description">This is the description.</p>
-        <h3>Mode</h3>
-        <p id="mode">Crunch</p>
-        <h3>Alloted Days</h3>
-        <p id="alloted-days">10</p>
-    
-        <div class="box">
-          <div class="content">
-            <p id="question">What is the powerhouse of the cell?</p>
-            <p id="answer">The Mitochondria</p>
-          </div>
-        </div>
-    
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .content {
+      margin-top: 2%;
+      margin-bottom: 2%;
+      margin-right: 5%;
+      margin-left: 5%
+    }
+
+    #create-card-label {
+      margin-top: 2.5%;
+      margin-right: 7.5%;
+      margin-left: 7.5%;
+      margin-bottom: 2%;
+    }
+
+    .form-group, .control-buttons {
+      margin-top: 2.5%;
+      margin-right: 7.5%;
+      margin-left: 7.5%;
+      margin-bottom: 5%;
+    }
+
+    #cards {
+      margin-top: 3.5%;
+      margin-bottom: 5%;
+      margin-right: 5%;
+      margin-left: 5%
+    }
+
+    .delete {
+      float: right;
+    }
+
+    p {
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero has-background-black">
+    <div class="hero-body">
+      <div class="container">
+        <figure class="image center">
+          <img id="logo" src="../../images/LoveToLearn.png" style="max-width: 400px;">
+        </figure>
       </div>
-    
-      <div class="field is-grouped">
-        <div class="control">
-          <button class="button is-dark">Study</button>
-        </div>
-        <div class="control">
-          <button class="button is-dark is-light">Edit</button>
-        </div>
     </div>
-  </body>
-</html>
+  </section>
 
+  <section class="hero is-link">
+    <div class="hero-body">
+      <p id="title" class="title">
+        🎓 Study - Category
+      </p>
+    </div>
+  </section>
+
+  <div id="info" class="content">
+    <h3 id="description-label">Description</h3>
+    <p id="description"></p>
+    <h3>Mode</h3>
+    <p id="mode"></p>
+    <h3 id="alloted-days-label">Alloted Days</h3>
+    <p id="alloted-days"></p>
+    <h3 id="days-label">Chosen Days</h3>
+    <p id="days"></p>
+  </div>
+  <div id="cards"></div>
+
+  <p id="create-card-label" class="subtitle">Create a New Card</p>
+  <div class="form-group">
+    <div class="field">
+      <label class="label">Question</label>
+      <div class="control">
+        <textarea id="question" class="textarea" placeholder="Question"></textarea>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Answer</label>
+      <div class="control">
+        <textarea id="answer" class="textarea" placeholder="Answer"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-buttons">
+    <div class="field is-grouped">
+      <div class="control">
+        <button id="add_cards" class="button is-warning is-inverted is-outlined">Add Card</button>
+        <button id="clear" class="button is-dark is-outlined">Clear</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
