@@ -1,6 +1,8 @@
+# list of vectors of how much you remembered over time
+# S
+
 import random
 import math
-
 
 avgS=2
 vect=[[0,1],[1,math.e**-1+1],[2,math.e**-2]]
@@ -43,11 +45,5 @@ def findS(Lsq, gradLsq, vect):
 
   else:
     return avgS
-
-    
-
-    
-  
-
 
 print(findS(LSq, gradLSq, vect))
