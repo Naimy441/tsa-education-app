@@ -6,6 +6,10 @@ logo.addEventListener('click', () => {
 const trackers = document.querySelector("div.trackers");
 let user_data = window.electronAPI.loadUserData();
 
+for (const card of user_data["tracker-data"]) {
+    addCard(card["title"], card["subtitle"]);
+}
+
 // Card html template
 function createCard(titleText, subtitleText) {
     // create the card element
@@ -63,13 +67,16 @@ function addCard(titleText, subtitleText) {
     trackers.querySelectorAll("button.done").forEach(function(node) {
         node.onclick=function() {
             const parent_card = node.parentElement.parentElement.parentElement;
-            user_data["tracker-data"].forEach((card, i) => {
-                if (card["title"] == parent_card.querySelector("p.title").textContent) {
+            console.log(user_data["tracker-data"]);
+            for (let i = 0; i < user_data["tracker-data"].length; i++) {
+                if (user_data["tracker-data"][i]["title"] == parent_card.querySelector("p.title").textContent && 
+                    user_data["tracker-data"][i]["subtitle"] == parent_card.querySelector("p.subtitle").textContent) {
                     user_data["tracker-data"].splice(i,1);
+                    break;
                 }
-            })
-            window.electronAPI.saveUserData(JSON.stringify(user_data));
+            }
 
+            window.electronAPI.saveUserData(JSON.stringify(user_data));
             trackers.removeChild(parent_card);
         }
     });
