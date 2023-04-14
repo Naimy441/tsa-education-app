@@ -1,10 +1,11 @@
 import math
+import json
+import sys
 
-# list: S
-# a, b
+jsonArgs=json.loads(sys.argv[1])
 
-SList = [1, 2, 3, 5, 6]
-vect = []
+SList=jsonArgs['S']
+
 sum = 0
 for i in range(len(SList)):
   vect.append([i, SList[i]])
@@ -62,4 +63,9 @@ def findS(vect):
     return avgAB
 
 
-print(findS(vect))
+avgAB=findS(vect)
+
+
+result= json.dumps ({  "result" : avgAB  })
+
+print(result)
