@@ -57,7 +57,7 @@ const trackers = document.querySelector("div.trackers");
 const firstChild = trackers.firstChild;
 trackers.insertBefore(createCard("APUSH", "Due in 0 days"), firstChild);
 
-trackers.querySelectorAll("p.title p.subtitle").forEach(function(node){
+trackers.querySelectorAll("p.title, p.subtitle").forEach(function(node){
 	node.ondblclick=function(){
 		var val=this.innerHTML;
 		var input=document.createElement("input");
