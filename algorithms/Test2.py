@@ -6,6 +6,8 @@ jsonArgs=json.loads(sys.argv[1])
 
 SList=jsonArgs['S']
 
+vect=[]
+
 sum = 0
 for i in range(len(SList)):
   vect.append([i, SList[i]])
