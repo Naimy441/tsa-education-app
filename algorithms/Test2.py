@@ -55,7 +55,7 @@ def findS(vect):
     for i in range(len(minList)):
       if Lsq(vect, minList[i][0], minList[i][1]) < Lsq(vect, val):
         val = minList[i]
-    return avgAB
+    return val
   elif (len(minList) == 1):
     return minList[0]
 
